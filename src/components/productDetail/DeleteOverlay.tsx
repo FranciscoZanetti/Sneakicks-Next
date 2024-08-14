@@ -6,7 +6,7 @@ import fetchData from "@/utils/front/fetch";
 import { Brand, Size, Product, Review, Products_size, Products_cart, Order, Shipping, User } from "@/utils/front/interfaz";
 import LoadingScreen from "@/components/loading/LoadingScreen";
 import { useState, useEffect } from 'react';
-import "@/styles/DeleteOverlay.css";
+import "@/styles/deleteOverlay.css";
 require('dotenv').config();
 
 interface DeleteOverlayProps {
