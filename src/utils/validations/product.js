@@ -1,0 +1,45 @@
+import { z } from 'zod';
+
+export const productSchema = z.object({
+  brand_name: z.string({ message: "No pueden ser números." }).min(1, { message: "Este campo no puede quedar vacío." }).max(20, { message: "Máximo 20 caracteres." }),
+  category: z.string({ message: "No pueden ser números." }).min(1, { message: "Este campo no puede quedar vacío." }).max(20, { message: "Máximo 30 caracteres." }),
+  colorwave: z.string({ message: "No pueden ser números." }).min(1, { message: "Este campo no puede quedar vacío." }).max(20, { message: "Máximo 20 caracteres." }),
+  discount: z.number({ message: "Debe ingresar un descuento válido." }).min(0, { message: "Debe ingresar un descuento válido." }).max(100, { message: "Debe ingresar un descuento válido." }),
+  name: z.string({ message: "No pueden ser números." }).min(1, { message: "Este campo no puede quedar vacío." }).max(40, { message: "Máximo 40 caracteres." }),
+  release_year: z.number({message: "Debe ingresar un año válido."}).int().positive({ message: "Debe ingresar un año válido." }),
+  price_original: z.number({ message: "Debe ingresar un precio válido." }).min(1, { message: "Debe ingresar un precio válido." }),
+  shoe_condition: z.string({ message: "No pueden ser números." }).min(1, { message: "Este campo no puede quedar vacío." }).max(10, { message: "Máximo 10 caracteres." }),
+  story: z.string({ message: "No pueden ser números." }).min(1, { message: "Este campo no puede quedar vacío." }).max(5000, { message: "Máximo 5000 caracteres." }),
+  size_30: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_35: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_40: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_45: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_50: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_55: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_60: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_65: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_70: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_75: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_80: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_85: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_90: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_95: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_100: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_105: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_110: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_115: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_120: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_125: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_130: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_135: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_140: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_145: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_150: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  size_155: z.number({ message: "Debe ser un número válido." }).int({ message: "Debe ser un número válido." }).nonnegative({ message: "Debe ser un número válido." }).optional(),
+  product_pictures: z.array(z.string()).min(1, { message: "Debe subir al menos una imagen."}),
+});
+
+export const reviewSchema = z.object({
+  stars: z.number().min(1, {message: 'El campo de estrellas no puede estar vacío'}),
+  text: z.string().min(1, {message: 'El campo de reseña no puede estar vacío'})
+});

@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Brand {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(45)
+  createdAt DateTime? @db.DateTime(0)
+  updatedAt DateTime? @updatedAt @db.DateTime(0)
+  products  Product[]
+
+  @@map("brands")
+}
+
+model Order {
+  id             Int             @id @default(autoincrement())
+  charges        Int?            @db.UnsignedMediumInt
+  total_amount   Int?            @db.UnsignedMediumInt
+  id_user        Int?
+  user_fullname  String          @db.VarChar(50)
+  id_shipping    Int?
+  createdAt      DateTime        @db.Date
+  updatedAt      DateTime        @updatedAt @db.Date
+  shipping       shippings?      @relation(fields: [id_shipping], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "id_shipping")
+  user           User?           @relation(fields: [id_user], references: [id], map: "id_user")
+  products_carts Products_cart[]
+
+  @@index([id_shipping], map: "id_shipping")
+  @@index([id_user], map: "id_user")
+  @@map("orders")
+}
+
+model Product {
+  id             Int             @id @default(autoincrement())
+  category       String          @db.VarChar(30)
+  id_brand       Int
+  name           String          @db.VarChar(40)
+  colorwave      String          @db.VarChar(20)
+  whole_name     String          @db.VarChar(60)
+  discount       Int             @db.UnsignedInt
+  price_original Decimal         @db.Decimal(10, 2)
+  price_final    Decimal         @db.Decimal(10, 2)
+  release_year   Int             @db.UnsignedInt
+  shoe_condition String          @db.VarChar(10)
+  story          String          @db.VarChar(5000)
+  main_picture   String          @db.VarChar(200)
+  picture1       String?         @db.VarChar(200)
+  picture2       String?         @db.VarChar(200)
+  picture3       String?         @db.VarChar(200)
+  createdAt      DateTime?       @db.Date
+  updatedAt      DateTime?       @updatedAt @db.Date
+  brand          Brand           @relation(fields: [id_brand], references: [id], onDelete: NoAction, map: "id_brand")
+  carts          Products_cart[]
+  product_sizes  Products_size[]
+  reviews        Review[]
+
+  @@index([id_brand], map: "id_brand")
+  @@map("products")
+}
+
+model Products_cart {
+  id         Int       @id @default(autoincrement())
+  user_id    Int?
+  product_id Int
+  units      Int       @db.UnsignedInt
+  size       Decimal   @db.Decimal(3, 1)
+  bought     Int
+  order_id   Int?      @map("order")
+  createdAt  DateTime? @db.Date
+  updatedAt  DateTime? @updatedAt @db.Date
+  order      Order?    @relation(fields: [order_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "order")
+  product    Product   @relation(fields: [product_id], references: [id], onDelete: Cascade, map: "product_id")
+  user       User?     @relation(fields: [user_id], references: [id], map: "user_id")
+
+  @@index([order_id], map: "order")
+  @@index([product_id], map: "product_id")
+  @@index([user_id], map: "user_id")
+  @@map("products_cart")
+}
+
+model Products_size {
+  id         Int       @id @default(autoincrement())
+  stock      Int       @db.UnsignedInt
+  product_id Int       @map("product")
+  size_id    Decimal   @map("size") @db.Decimal(3, 1)
+  createdAt  DateTime? @db.Date
+  updatedAt  DateTime? @updatedAt @db.Date
+  product    Product   @relation(fields: [product_id], references: [id], onDelete: Cascade, map: "product")
+  size       Size      @relation(fields: [size_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "size")
+
+  @@index([product_id], map: "product")
+  @@index([size_id], map: "size")
+  @@map("products_sizes")
+}
+
+model Review {
+  id         Int       @id @default(autoincrement())
+  stars      Int
+  text       String    @db.VarChar(1000)
+  id_product Int
+  createdAt  DateTime? @db.Date
+  updatedAt  DateTime? @updatedAt @db.Date
+  product    Product   @relation(fields: [id_product], references: [id], onDelete: Cascade, map: "id_product")
+
+  @@index([id_product], map: "id_product")
+  @@map("reviews")
+}
+
+model Size {
+  id          Decimal         @id @db.Decimal(3, 1)
+  number      Decimal         @db.Decimal(3, 1)
+  centimeters Decimal         @db.Decimal(3, 1)
+  products    Products_size[]
+
+  @@map("sizes")
+}
+
+model User {
+  id         Int             @id @default(autoincrement())
+  first_name String          @db.VarChar(45)
+  last_name  String          @db.VarChar(45)
+  email      String          @unique(map: "email") @db.VarChar(45)
+  password   String          @db.VarChar(200)
+  category   String          @db.VarChar(20)
+  image      String          @db.VarChar(200)
+  createdAt  DateTime?       @db.Date
+  updatedAt  DateTime?       @updatedAt @db.Date
+  orders     Order[]
+  carts      Products_cart[]
+
+  @@map("users")
+}
+
+model shippings {
+  id          Int     @id @default(autoincrement())
+  name        String  @db.VarChar(45)
+  description String  @db.VarChar(45)
+  cost        Int     @db.UnsignedInt
+  orders      Order[]
+}

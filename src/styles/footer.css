@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0px;
+    text-decoration: none;
+}
+
+.partial-footer{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0px;
+}
+
+.partial-footer a {
+    text-decoration: underline;
+    color: white;
+    font-weight: 500;
+}
+
+.partial-footer p {
+    color: white;
+    font-size: 14px;
+}
+
+.partial-footer {
+    background-color: #23314D;
+}
+
+.partial-footer .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.partial-footer .footer-container_item {
+    width: 95%;
+    height: auto;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.partial-footer .footer-container_item-title {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.partial-footer .footer-container_item-content {
+    display: none;
+}
+
+.partial-footer .footer-container_logo {
+    display: flex;
+    width: 32%;
+    height: auto;
+    align-items: center;
+}
+
+.partial-footer .footer-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 180px;
+}
+
+.partial-footer .social_icon {
+    margin: 10px 5px;
+}
+
+.partial-footer .socials-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+@media (min-width: 576px){
+
+}
+
+
+@media (min-width: 768px){
+
+}
+
+@media (min-width: 992px){
+
+    .partial-footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .partial-footer .footer-container{
+        width: 90%;
+    }
+
+    .partial-footer .footer-container_item {
+        width: 32%;
+        height: auto;
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .partial-footer .footer-container_item-title {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .partial-footer .footer-container_item-content {
+        display: block;
+    }
+
+    .partial-footer .footer-container_logo {
+        display: flex;
+        width: 32%;
+        height: auto;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .partial-footer .chevron-margin-right {
+        visibility: hidden;
+    }
+    
+}
+
+@media (min-width: 1200px){}
+
+@media (min-width: 1400px){}

@@ -1,0 +1,66 @@
+/* Estilos generales para la página */
+/* body {
+    font-family: Arial, sans-serif;
+} */
+
+/* Estilos del overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#overlay .overlay-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+#overlay .overlay-content h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#overlay .overlay-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#overlay .overlay-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilos para el botón de cancelar */
+#overlay .btn-cancel {
+    background-color: #ccc;
+    color: #333;
+}
+
+#overlay .btn-cancel:hover {
+    background-color: #bbb;
+}
+
+/* Estilos para el botón de eliminar */
+#overlay .btn-delete {
+    background-color: #e74c3c; /* Rojo */
+    color: white;
+}
+
+#overlay .btn-delete:hover {
+    background-color: #c0392b; /* Rojo más oscuro */
+}

@@ -1,95 +1,94 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft as faChevronLeftSolid, faChevronRight as faChevronRightSolid, faEllipsis as faEllipsisSolid } from '@fortawesome/free-solid-svg-icons';
+import '@/styles/home.css';
+import HomeSection from '@/components/home/HomeSection';
+import fetchData from "@/utils/front/fetch";
+import { Brand, Size, Product, Review, Products_size, Products_cart, Order, Shipping, User } from "@/utils/front/interfaz";
+require('dotenv').config();
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+interface HomeProps{
+    unreleased: any[];
+    bargains: any[];
+    newones: any[];
+    used: any[];
 }
+
+export default async function Home() {
+    // const unreleased: Product[] = [];
+    // const bargains: Product[] = [];
+    // const used: Product[] = [];
+    // const newones: Product[] = [];
+    console.log("Is this running on the server?", typeof window === "undefined");
+
+
+    console.log("WILL REFETCH");
+    
+    const response = await fetchData("/products/landing", { seconds: 300 });
+    console.log(response);
+    
+    const unreleased: Product[] = response.data?.unreleased ?? [];
+    console.log(unreleased);
+    
+    const bargains: Product[] = response.data?.bargains ?? [];
+    const used: Product[] = response.data?.used ?? [];
+    const newones: Product[] = response.data?.newones ?? [];
+
+
+    return (
+        <main id='Home-main'>
+            <div className="carrousel_container">
+                <p className="carrousel_text">NUEVOS ARRIBOS</p>
+                <img src={"https://res.cloudinary.com/dm4xprvtz/image/upload/v1721423153/banner2_qfybch.png"} alt="carrousel" className="carrousel"/>
+                <Link href="/products" className="shop_button">COMPRAR</Link>
+                <FontAwesomeIcon icon={faChevronLeftSolid} className="fa-solid fa-chevron-left fa-xl left_arrow"/>
+                <FontAwesomeIcon icon={faChevronRightSolid} className="fa-solid fa-chevron-right fa-xl right_arrow"/>
+            </div>
+            <div className="pagination_container">
+                <FontAwesomeIcon icon={faEllipsisSolid} className="fa-solid fa-2xl fa-ellipsis color-grey"/>
+            </div>
+            <div className="discount-container">
+                <img src={"https://res.cloudinary.com/dm4xprvtz/image/upload/v1721423160/offer1_ye3s88.jpg"} alt="Oferta Nike" className="discount-container_item"/>
+                <img src={"https://res.cloudinary.com/dm4xprvtz/image/upload/v1721423161/offer2_t1hqyy.png"} alt="Oferta Puma" className="discount-container_item"/>
+            </div>
+
+            {unreleased.length > 0 && <HomeSection category={"NOVEDADES"} products={unreleased} />}
+
+            {bargains.length > 0 && <HomeSection category={"OFERTAS"} products={bargains} />}
+
+            {newones.length > 0 && <HomeSection category={"NUEVOS"} products={newones} />}
+
+            {used.length > 0 && <HomeSection category={"USADOS"} products={used} />}
+
+            <div className="carrousel_container">
+                <img src={"https://res.cloudinary.com/dm4xprvtz/image/upload/v1721423152/banneroffer_z60t55.jpg"} alt="Oferta Pony" className="lower_banner"/>
+            </div>
+            <h2 className="center_text">COMPRA POR MARCAS</h2>
+            <div className="carrousel_small_container">
+                <div className="carrousel_small">
+                    <img src={"https://res.cloudinary.com/dm4xprvtz/image/upload/v1721423198/logonike_cceuaq.png"} alt="Logo Nike" className="brands_preview"/>
+                    <img src={"https://res.cloudinary.com/dm4xprvtz/image/upload/v1721423196/logoadidas_fzqrev.png"} alt="Logo Adidas" className="brands_preview"/>
+                    <img src={"https://res.cloudinary.com/dm4xprvtz/image/upload/v1721423197/logofila_vbf62q.png"} alt="Logo Fila" className="brands_preview"/>
+                    <img src={"https://res.cloudinary.com/dm4xprvtz/image/upload/v1721423199/logopuma_eyqwaz.png"} alt="Logo Puma" className="brands_preview"/>
+                    <FontAwesomeIcon icon={faChevronLeftSolid} className="fa-solid fa-chevron-left brands_left_arrow"/>
+                    <FontAwesomeIcon icon={faChevronRightSolid} className="fa-solid fa-chevron-right brands_right_arrow"/>
+                </div>
+            </div>
+        </main>
+    );
+}
+
+// const getServerSideProps: GetServerSideProps<HomeProps> = async () =>{
+//     const response = await fetch(`${process.env.APP_BASE_URL}/api/main`);
+//     const data = await response.json();
+
+//     return {
+//         props: {
+//             unreleased: data.data?.unreleased ?? [],
+//             bargains: data.data?.bargains ?? [],
+//             newones: data.data?.newones ?? [],
+//             used: data.data?.used ?? [],
+//         },
+//     };
+// }

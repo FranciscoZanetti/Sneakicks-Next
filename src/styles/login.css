@@ -1,0 +1,100 @@
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    text-decoration: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #f9f9f9;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+#login-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+#login-main .login-form-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#login-main .login-form-container h1 {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+}
+
+#login-main .input-container-padre {
+    margin-bottom: 1rem;
+}
+
+#login-main .text-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#login-main .text-input.error-style {
+    border-color: red;
+    background-color: rgb(252, 230, 230);
+}
+
+#login-main .error-alert {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 0.75rem;
+}
+
+#login-main .shop_button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #5E554B;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#login-main .shop_button:hover {
+    background-color: #4d473f;
+}
+
+#login-main .boton_hijo2 {
+    margin-top: 1rem;
+    font-size: 14px;
+}
+
+#login-main .boton_hijo2 a {
+    color: #5E554B;
+}
+
+#login-main .boton_hijo2 a:hover {
+    text-decoration: underline;
+}

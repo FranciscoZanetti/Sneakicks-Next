@@ -1,0 +1,551 @@
+main{
+    --vw-1-5rem: clamp(1.35rem, calc(((24 * 100) / 414) * 1vw), 2.087rem);
+    --vw-1-2rem: clamp(1rem, calc(((19.2 * 100) / 414) * 1vw), 1.669rem);
+    --vw-1rem: clamp(0.9rem, calc(((16 * 100) / 414) * 1vw), 1rem);
+    --vw-2rem: clamp(1.8rem, calc(((32 * 100) / 414) * 1vw), 2.782rem);
+    --vw-2-5rem: clamp(2.26rem, calc(((40 * 100) / 414) * 1vw), 3.478rem);
+    --vw-10px: clamp(0.5rem, calc(((10 * 100) / 414) * 1vw), 0.869rem);
+    --vw-20px: clamp(1.13rem, calc(((20 * 100) / 414) * 1vw), 1.739rem);
+    --vw-1-1rem: clamp(0.99rem, calc(((17.6 * 100) / 414) * 1vw), 1.53rem);
+    --vw-0-5rem: clamp(0.45rem, calc(((8 * 100) / 414) * 1vw), 0.695rem);
+    --vw-0-4rem: clamp(0.36rem, calc(((6.4 * 100) / 414) * 1vw), 0.556rem);
+    --vw-0-8rem: clamp(0.7rem, calc(((12.8 * 100) / 414) * 1vw), 1.113rem);
+    --vw-4rem: clamp(3.62rem, calc(((64 * 100) / 414) * 1vw), 5.565rem);
+    --vw-3rem: clamp(2.7rem, calc(((48 * 100) / 414) * 1vw), 4.174rem);
+    --vw-5rem: clamp(4.5rem, calc(((80 * 100) / 414) * 1vw), 6.956rem);
+    --vw-10rem: clamp(9rem, calc(((160 * 100) / 414) * 1vw), 14rem);
+}
+
+
+#CreateEdit-main #stars-text-error-message{
+    color: rgb(253, 135, 135);
+    font-size: var(--vw-0-8rem);
+}
+
+*{
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0px;
+    text-decoration: none;
+
+}
+
+#CreateEdit-main #CreateEdit-main{
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+#CreateEdit-main{
+    display: flex;
+    justify-content: center;
+    font-size: var(--vw-1rem);
+    text-align: left;
+}
+
+#CreateEdit-main .container{
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: var(--vw-2rem);
+    padding-bottom: var(--vw-2rem);
+}
+
+
+#CreateEdit-main .header-id-container-parent{
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--vw-1-5rem);
+}
+
+    #CreateEdit-main .header-container-child{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+        #CreateEdit-main h2{
+            text-align: center;
+            font-size: var(--vw-1-5rem);
+            margin-top: 0;
+            margin-bottom: var(--vw-1-5rem);
+        }
+
+        #CreateEdit-main .product-id{
+            background-color: #ebebeb;
+            border: none;
+            border-radius: 7px;
+            /* padding-left: 5%;
+            padding-right: 5%; */
+            /* padding-top: var(--vw-0-5rem);
+            padding-bottom: var(--vw-0-5rem); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            #CreateEdit-main #product-id-read-only{
+                background-color: #ebebeb;
+                border: none;
+                border-radius: 7px;
+                text-align: center;
+                display: flex;
+                font-size: var(--vw-1rem);
+                width: var(--vw-10rem);
+                padding-top: var(--vw-0-5rem);
+                padding-bottom: var(--vw-0-5rem);
+            }
+
+#CreateEdit-main article{
+    margin-bottom: var(--vw-1-2rem);
+}
+
+    #CreateEdit-main .item-input{
+        display: block;
+        width: 100%;
+        padding-top: var(--vw-0-5rem);
+        padding-bottom: var(--vw-0-5rem);
+        padding-left: 5%;
+        padding-right: 5%;
+        border-radius: 7px;
+        border: none;
+        background-color: #ebebeb;
+        font-size: var(--vw-1rem);
+    }
+
+    #CreateEdit-main .item-input-errors{
+        display: block;
+        width: 100%;
+        padding-top: var(--vw-0-5rem);
+        padding-bottom: var(--vw-0-5rem);
+        padding-left: 5%;
+        padding-right: 5%;
+        border-radius: 7px;
+        border: 2px solid #fc8181;
+        background-color: #ffd1d1;
+        font-size: var(--vw-1rem);
+    }
+
+    #CreateEdit-main .item-label{
+        display: block;
+        font-size: var(--vw-1-1rem);
+        margin-bottom: var(--vw-0-5rem);
+    }
+
+    #CreateEdit-main #product-size{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        justify-items: left;
+    }
+
+        #CreateEdit-main .item-size{
+            border-radius: 7px;
+            background-color: #ebebeb;
+            padding-top: var(--vw-0-5rem);
+            padding-bottom: var(--vw-0-5rem);
+            padding-right: 2%;
+            padding-left: 2%;
+            margin-bottom: var(--vw-0-8rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 30%;
+            margin-left: var(--vw-1rem);
+            margin-right: var(--vw-1rem);
+            max-width: 130px;
+            flex-grow: 0;
+        }
+
+        #CreateEdit-main .item-size-errors{
+            border-radius: 7px;
+            background-color: #ffd1d1;
+            border: 2px solid #fc8181;
+            padding-top: var(--vw-0-5rem);
+            padding-bottom: var(--vw-0-5rem);
+            padding-right: 2%;
+            padding-left: 2%;
+            margin-bottom: var(--vw-0-8rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 30%;
+            margin-left: var(--vw-1rem);
+            margin-right: var(--vw-1rem);
+            max-width: 130px;
+            flex-grow: 0;
+        }
+
+            #CreateEdit-main .item-size label{
+                padding-left: var(--vw-0-5rem);
+                font-size: var(--vw-1rem);
+            }
+
+            #CreateEdit-main .size-input-container{
+                width: 40%;
+                display: flex;
+                justify-content: space-around;
+                background-color: #ebebeb;
+                border-radius: 7px;
+                border: none;
+            }
+
+                #CreateEdit-main .size-input{
+                    border: none;
+                    border-radius: 7px;
+                    width: 70%;
+                    font-size: var(--vw-1rem);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #ebebeb;
+                }
+
+                #CreateEdit-main .size-input-container span{
+                    font-size: var(--vw-1rem);
+                }
+
+    #CreateEdit-main .discount-container{
+        background-color: #ebebeb;
+        display: flex;
+        border-radius: 7px;
+    }
+
+    #CreateEdit-main .discount-container span{
+        display: flex;
+        float: right;
+        align-items: center;
+        justify-content: center;
+        padding-right: var(--vw-1-1rem);
+        padding-left: var(--vw-1-1rem);
+    }
+
+        #CreateEdit-main #item-discount{
+            display: inline-block;
+            flex-grow: 1;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    
+    #CreateEdit-main .item-header{
+        font-size: var(--vw-1-1rem);
+    }
+
+    #CreateEdit-main #item-condition-container{
+        position: relative;
+        display: flex;
+        padding-top: var(--vw-0-5rem);
+        padding-bottom: var(--vw-0-5rem);
+        padding-left: 5%;
+        padding-right: 5%;
+        border-radius: 7px;
+        border: none;
+        background-color: #ebebeb;
+    }
+
+        #CreateEdit-main #item-condition{
+            font-size: var(--vw-1rem);
+            background-color: #ebebeb;
+            border: none;
+            flex-grow: 100%;
+            width: 100%;
+        }
+
+        #CreateEdit-main #item-condition:hover{
+            cursor: pointer;
+        }
+
+        #CreateEdit-main .custom-arrow-size{
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #ebebeb;
+            width: var(--vw-3rem);
+            height: 100%;
+            pointer-events: none;
+            border-radius: 7px;
+        }
+
+        #CreateEdit-main .custom-arrow-size::before{
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 0.4rem solid transparent;
+            border-right: 0.4rem solid transparent;
+            border-top: 0.5rem solid black;
+        }
+
+    #CreateEdit-main .description-container-parent{
+        display: flex;
+        margin-bottom: var(--vw-1rem);
+        /* overflow: auto; */
+    }
+
+        #CreateEdit-main .description-container-child{
+            width: 100%;
+            border-radius: 7px;
+            border: none;
+            background-color: #ebebeb;
+            position: relative;
+            padding-right: var(--vw-0-5rem);
+            /* overflow: auto; */
+        }
+        #CreateEdit-main .description-container-child-errors{
+            width: 100%;
+            border-radius: 7px;
+            border: none;
+            background-color: #ffd5d5;
+            border: 2px solid #fc8181;
+            position: relative;
+            padding-right: var(--vw-0-5rem);
+            /* overflow: auto; */
+        }
+
+            #CreateEdit-main #item-description{
+                padding-left: var(--vw-1rem);
+                padding-right: var(--vw-0-5rem);
+                padding-top: var(--vw-0-5rem);
+                border: none;
+                border-radius: 7px;
+                font-family: 'Nunito Sans', sans-serif;
+                font-size: var(--vw-1rem);
+                width: 100%;
+                height: 100%;
+                background-color: #ebebeb;
+            }
+
+            #CreateEdit-main #item-description::placeholder{
+                color: #ABABAB;
+            }
+
+            #CreateEdit-main #item-description::-webkit-input-placeholder::before{
+                color: #ABABAB;
+            }
+
+            #CreateEdit-main #item-description:-moz-placeholder::before{
+                color: #ABABAB;
+            }
+
+            #CreateEdit-main #item-description::-moz-placeholder::before{
+                color: #ABABAB;
+            }
+
+            #CreateEdit-main #item-description:-ms-input-placeholder::before{
+                color: #ABABAB;
+            }
+
+            #CreateEdit-main .description-aux{
+                position: absolute;
+                display: block;
+                bottom: 0;
+                right: var(--vw-0-5rem);
+                height: 100%;
+                width: var(--vw-1rem);
+                /* background-color: white; */
+                background-color: #ebebeb;
+                pointer-events: none;
+            }
+    
+    #CreateEdit-main #files-header {
+        margin-bottom: 40px;
+    }
+
+
+    #CreateEdit-main .item-images{
+        border-radius: 7px;
+        background-color: #ebebeb;
+        padding-top: var(--vw-0-5rem);
+        padding-bottom: var(--vw-0-5rem);
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+    #CreateEdit-main .item-images-errors{
+        border-radius: 7px;
+        background-color: #ffd5d5;
+        border: 2px solid #fc8181;
+        padding-top: var(--vw-0-5rem);
+        padding-bottom: var(--vw-0-5rem);
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+        #CreateEdit-main #item-images{
+            cursor: pointer;
+        }
+    
+    #CreateEdit-main #product-buttons{
+        margin-top: var(--vw-2rem)
+    }
+
+    #CreateEdit-main .item-submit{
+        margin-bottom: var(--vw-1-1rem);
+        padding-top: var(--vw-0-5rem);
+        padding-bottom: var(--vw-0-5rem);
+        border: none;
+        background-color: black;
+        border-radius: 7px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #CreateEdit-main .item-submit:hover{
+        cursor: pointer;
+    }
+
+        #CreateEdit-main #item-submit{
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: var(--vw-1-1rem);
+        }
+
+        #CreateEdit-main #item-submit:hover{
+            cursor: pointer;
+        }
+
+    #CreateEdit-main .item-reset{
+        padding-top: var(--vw-0-5rem);
+        padding-bottom: var(--vw-0-5rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #ABABAB;
+        border-radius: 7px;
+        transition: border, 100ms;
+    }
+
+    #CreateEdit-main .item-reset:hover{
+        border: 2px solid black;
+        cursor: pointer;
+    }
+
+    #CreateEdit-main .item-reset:hover > #item-reset{
+        color: black;
+    }
+
+    #CreateEdit-main #item-reset{
+        border: none;
+        background-color: white;
+        color: #ABABAB;
+        font-size: var(--vw-1-1rem);
+        transition: color, 100ms;
+    }
+
+    #CreateEdit-main #item-reset:hover{
+        cursor: pointer;
+    }
+
+    #CreateEdit-main .error-message{
+        color: red;
+        font-size: var(--vw-0-8rem);
+    }
+
+@media (min-width: 582px){
+
+    #CreateEdit-main .item-size{
+        margin-left: var(--vw-0-8rem);
+        margin-right: var(--vw-0-8rem);
+        width: 35%;
+        max-width: 170px;
+    }
+    #CreateEdit-main .item-size-errors{
+        margin-left: var(--vw-0-8rem);
+        margin-right: var(--vw-0-8rem);
+        width: 35%;
+        max-width: 170px;
+    }
+    #CreateEdit-main .item-size label{
+        font-size: var(--vw-0-8rem);
+    }
+    #CreateEdit-main .size-input{
+        font-size: var(--vw-0-8rem);
+    }
+    #CreateEdit-main .size-input-container{
+        width: 55%;
+    }
+    #CreateEdit-main .size-input-container span{
+        font-size: var(--vw-0-8rem);
+    }
+}
+
+@media (min-width: 768px){
+
+    #CreateEdit-main{
+        font-size: var(--vw-0-8rem);
+    }
+
+        #CreateEdit-main h2{
+            font-size: var(--vw-1-2rem);
+            margin-bottom: var(--vw-1-2rem);
+        }
+
+    #CreateEdit-main .price-discount-container{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+        #CreateEdit-main .price-discount-container article{
+            width: 40%;
+        }
+    
+    #CreateEdit-main #product-buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+
+        #CreateEdit-main .item-reset{
+            width: 40%;
+        }
+
+        #CreateEdit-main .item-submit{
+            width: 40%;
+            margin-bottom: 0;
+        }
+}
+
+@media (min-width: 992px){
+
+    .Create-Edit-main{
+        --vw-1-5rem: 1.5rem;
+        --vw-1-2rem: 1.2rem;
+        --vw-1rem: 1rem;
+        --vw-2rem: 2rem;
+        --vw-2-5rem: 2.5rem;
+        --vw-10px: 10px;
+        --vw-20px: 20px;
+        --vw-1-1rem: 1.1rem;
+        --vw-0-5rem: 0.5rem;
+        --vw-0-4rem: 0.4rem;
+        --vw-0-8rem: 0.8rem;
+        --vw-4rem: 4rem;
+        --vw-3rem: 3rem;
+        --vw-5rem: 5rem;
+    }
+
+    #CreateEdit-main .container{
+        width: 992px;
+    }
+
+    #CreateEdit-main .header-container-child{
+        width: 70%;
+    }
+
+        #CreateEdit-main h2{
+            font-size: 1.8rem;
+        }
+    #CreateEdit-main .item-size label{
+        font-size: var(--vw-1rem);
+    }
+    #CreateEdit-main .size-input{
+        font-size: var(--vw-1rem);
+    }
+    #CreateEdit-main .size-input-container span{
+        font-size: var(--vw-1rem);
+    }
+}

@@ -1,0 +1,221 @@
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0px;
+    text-decoration: none;
+}
+
+.partial-header {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px;
+}
+
+.partial-header li {
+    list-style: none;
+}
+
+.partial-header ul {
+    padding-left: 0;
+}
+
+.partial-header a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.partial-header .top-navbar-container {
+    background-color: #ccc;
+}
+
+.partial-header .top-navbar {
+    width: 100%;
+    height: 65px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* Añadido para contexto del logo */
+}
+
+.partial-header .top-navbar .top-left-navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.partial-header .top-navbar .top-left-navbar ul li {
+    margin: 10px;
+}
+
+.partial-header .fa-solid.fa-magnifying-glass {
+    display: none;
+}
+
+.partial-header .logo {
+    position: absolute; /* Añadido para centrar el logo */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.partial-header .logo img {
+    min-width: 125px;
+    width: 20%;
+    max-width: 200px;
+    height: auto;
+}
+
+.partial-header .top-right-navbar ul {
+    display: flex;
+    align-items: center;
+}
+
+.partial-header .top-right-navbar ul li {
+    margin: 10px;
+}
+
+.partial-header .bottom-navbar-container {
+    background-color: #cccc;
+}
+
+.partial-header .bottom-navbar {
+    width: 100%;
+    height: auto;
+    padding: 1px;
+    display: none;
+}
+
+.partial-header .bottom-navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+}
+
+.partial-header .bottom-navbar ul li {
+    margin: 0 12px;
+}
+
+.user_button {
+    border: none; /* Quitamos el borde negro */
+    border-radius: 0.5rem;
+    width: auto;
+    padding: 0.1rem 0.4rem;
+}
+
+@media (min-width: 576px) {
+    .partial-header {
+        font-size: 14px;
+    }
+
+    .partial-header .header_icon {
+        color: #5E554B;
+        margin-left: 10px;
+        margin-right: 10px;
+        visibility: visible;
+    }
+
+    .partial-header .header_logo {
+        width: 180px;
+        height: auto;
+    }
+
+    .partial-header .menu_icon {
+        color: #5E554B;
+        margin-left: 10px;
+        margin-right: 10px;
+        visibility: hidden;
+    }
+}
+
+@media (min-width: 768px) {
+    .partial-header .header_logo {
+        width: 240px;
+        height: auto;
+    }
+
+    .partial-header .shop_button {
+        height: 48px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 992px) {
+    .partial-header .top-navbar-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .partial-header .top-navbar {
+        width: 90%;
+    }
+
+    .partial-header .bottom-navbar-container {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .partial-header .bottom-navbar {
+        display: block;
+        width: 90%;
+    }
+
+    .partial-header {
+        font-size: 16px;
+    }
+
+    .partial-header .dropdown {
+        display: none !important;
+    }
+
+    .partial-header .fa-solid.fa-magnifying-glass {
+        display: list-item;
+    }
+
+    .partial-header .logo img {
+        width: 9rem;
+    }
+}
+
+/* Ajustes específicos para dispositivos móviles pequeños */
+@media (max-width: 576px) {
+    .partial-header .user_button {
+        font-size: 15px; /* Reducimos el tamaño de la letra del botón de usuario */
+        padding: 0.05rem 0.1rem; /* Ajustamos el padding del botón de usuario */
+    }
+
+    .partial-header .top-right-navbar ul li {
+        margin: 5px;
+    }
+
+    .partial-header .top-navbar {
+        justify-content: space-between;
+    }
+
+    .partial-header .logo img {
+        width: 100px; /* Reducimos el tamaño del logo */
+    }
+
+    .partial-header .logo {
+        order: 1;
+        flex-grow: 0;
+    }
+
+    .partial-header .top-left-navbar {
+        order: 0;
+    }
+
+    .partial-header .top-right-navbar {
+        order: 2;
+    }
+}

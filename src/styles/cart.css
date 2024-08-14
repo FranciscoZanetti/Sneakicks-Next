@@ -1,0 +1,299 @@
+/* @charset "utf-8";
+
+@import url("header.css");
+@import url("footer.css");
+
+*{
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  list-style: none;
+  padding: 0px;
+}
+
+*{
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0px;
+    text-decoration: none;
+}
+
+body {
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+a {
+  border: 0 none;
+  outline: 0;
+  text-decoration: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+
+h1 {
+  font-size: 0.75rem;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button {
+  border: 0 none;
+  outline: 0 none;
+}
+
+button {
+  background-color: #666;
+  color: #fff;
+}
+
+button:hover,
+button:focus {
+  background-color: #555;
+}
+
+.price:before,
+.subtotal:before,
+.subtotal-value:before,
+.total-value:before {
+  content: '$';
+}
+
+.hide {
+  display: none;
+}
+
+main {
+  display: flex;
+  font-size: 0.75rem;
+  margin: 0 auto;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cart {
+  padding: 0 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.cart-module {
+  color: #111;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3125rem;
+}
+
+.cart-labels {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  display: none;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  color: #111;
+  display: inline-block;
+  padding: 0.625rem 0;
+}
+
+li.price:before,
+li.subtotal:before {
+  content: '';
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.subtotal {
+  text-align: right;
+}
+
+.price,
+.stock,
+.remove {
+  width: 30%;
+}
+
+.details {
+  width: 70%;
+  text-align: left;
+}
+
+.remove button {
+  background-color: transparent;
+  color: #777;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.item-heading {
+  padding-left: 4.375rem;
+  box-sizing: border-box;
+}
+
+.cart-product {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.product-image {
+  width: 40%;
+  max-width: 200px;
+}
+
+.product-details {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.product-frame {
+  border: 1px solid #aaa;
+  width: 100%;
+}
+
+.product-details {
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.product-lower-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
+}
+
+.stock-field {
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 0.625rem;
+  padding: 2px;
+  width: 3.75rem;
+}
+
+.summary {
+  background-color: #eee;
+  border: 1px solid #aaa;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.summary-total-items {
+  color: #666;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.summary-subtotal,
+.summary-total {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.subtotal-title,
+.subtotal-value,
+.total-title,
+.total-value {
+  color: #111;
+}
+
+.summary-delivery {
+  padding-bottom: 3rem;
+}
+
+.subtotal-value,
+.total-value {
+  text-align: right;
+}
+
+.total-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.summary-checkout {
+  display: block;
+}
+
+.checkout-cta {
+  display: block;
+  font-size: 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.625rem 0;
+  width: 100%;
+}
+
+.summary-delivery-selection {
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  display: block;
+  font-size: 0.625rem;
+  width: 100%;
+}
+
+@media (min-width: 576px){}
+
+@media (min-width: 768px){
+  .cart-labels {
+    display: flex;
+    width: 100%;
+  }
+
+  .product-details {
+    flex-wrap: nowrap;
+  }
+
+  .product-lower-container {
+    border-top: 0px;
+  }
+}
+
+@media (min-width: 992px){
+
+  .cart {
+    width: 65%;
+  }
+
+  .summary {
+    width: 25%;
+  }
+
+}
+
+@media (min-width: 1200px){}
+
+@media (min-width: 1400px){} */
