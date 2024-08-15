@@ -64,7 +64,8 @@ const fetchData = async (url: string, options: FetchOptions = {}) => {
         ...(options?.seconds && { next: { revalidate: options.seconds } })
     };
 
-
+    console.log(process.env.NEXT_PUBLIC_API_KEY);
+    
     console.log(baseUrl);
 
     try {
