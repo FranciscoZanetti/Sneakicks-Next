@@ -33,7 +33,7 @@ interface FetchOptions {
 }
 
 // const baseUrl = `https://${process.env.VERCEL_URL}`;
-const baseUrl = "https://sneakicks-wheat.vercel.app";
+const baseUrl = "https://sneakicks-next.vercel.app";
 
 const fetchData = async (url: string, options: FetchOptions = {}) => {
 
