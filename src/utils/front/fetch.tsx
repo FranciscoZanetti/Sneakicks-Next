@@ -64,7 +64,8 @@ const fetchData = async (url: string, options: FetchOptions = {}) => {
     };
 
 
-
+    console.log(baseUrl);
+    
     const response = await fetch("https://sneakicks-wheat.vercel.app" + "/api" + url, settings);
     return await response.json();
 }
