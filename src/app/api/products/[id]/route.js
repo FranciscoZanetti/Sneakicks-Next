@@ -5,7 +5,8 @@ import { apiKeyMiddleware } from '@/utils/apiKeyMiddleware';
 import { redis } from "@/libs/redis";
 import authUtils from "@/utils/auth";
 import cloudinary from 'cloudinary';
-import { backendClient } from '../../edgestore/[...edgestore]/route';
+// import { backendClient } from '../../edgestore/[...edgestore]/route';
+import { backendClient } from "@/utils/edgestore-router";
 
 export async function GET(req, {params}) {
 

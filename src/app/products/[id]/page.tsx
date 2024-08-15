@@ -14,6 +14,7 @@ import { Brand, Size, Product, Review, Products_size, Products_cart, Order, Ship
 import LoadingScreen from "@/components/loading/LoadingScreen";
 import { useRouter } from 'next/navigation';
 import DeleteOverlay from "@/components/productDetail/DeleteOverlay";
+import LoadingOverlay from "@/components/loading/LoadingOverlay";
 require('dotenv').config();
 
 
@@ -27,6 +28,7 @@ const ProductDetail: React.FC = () => {
   const id = useParams().id;
   const [overlay, setOverlay] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const productId = typeof id === 'string' ? parseInt(id) : null;
   const [product, setProduct] = useState<Product | null>(null);
   const [colorwaves, setColorwaves] = useState<any>(null);
@@ -84,15 +86,18 @@ const ProductDetail: React.FC = () => {
   };
 
   const handleDelete = async () => {
+      setIsDeleting(true);
       try {
           const results = await fetchData("/products/" + productId, { method: "DELETE" });
           if (results.status == 200) {
               router.push("/");
           } else {
+            setIsDeleting(false);
               return;
           }
       } catch (error) {
           console.log(error);
+          setIsDeleting(false);
           return;
       }
   }
@@ -111,7 +116,7 @@ const ProductDetail: React.FC = () => {
 
   return (
     <main id='ProductDetail'>
-
+      {isDeleting && <LoadingOverlay text='Eliminando producto...' />}
       {overlay && <DeleteOverlay id={productId} handleDelete={handleDelete} handleAbort={handleAbort} /> }
 
       <div className="container">

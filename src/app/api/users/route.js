@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 import { apiKeyMiddleware } from "@/utils/apiKeyMiddleware";
-import { userSchema } from "@/utils/validations/user";
 import authUtils from "@/utils/auth";
 require('dotenv').config();
 
