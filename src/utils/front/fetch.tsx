@@ -65,7 +65,7 @@ const fetchData = async (url: string, options: FetchOptions = {}) => {
 
 
 
-    const response = await fetch(process.env.NEXT_PUBLIC_APP_BASE_URL + "/api" + url, settings);
+    const response = await fetch(baseUrl + "/api" + url, settings);
     return await response.json();
 }
 
