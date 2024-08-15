@@ -32,6 +32,8 @@ interface FetchOptions {
     body?: any;
 }
 
+const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || `https://${process.env.VERCEL_URL}`;
+
 const fetchData = async (url: string, options: FetchOptions = {}) => {
 
     console.log("\nFETCHING\n");
