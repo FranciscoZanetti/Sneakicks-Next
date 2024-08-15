@@ -66,9 +66,16 @@ const fetchData = async (url: string, options: FetchOptions = {}) => {
 
 
     console.log(baseUrl);
-    
-    const response = await fetch(baseUrl + "/api" + url, settings);
-    return await response.json();
+
+    try {
+        const response = await fetch(baseUrl + "/api" + url, settings);
+        console.log(response);
+        console.log(response.json());
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+        return;
+    }
 }
 
 export default fetchData;
