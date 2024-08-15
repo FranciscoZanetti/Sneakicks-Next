@@ -71,10 +71,11 @@ const fetchData = async (url: string, options: FetchOptions = {}) => {
     try {
         const response = await fetch(baseUrl + "/api" + url, settings);
         console.log(response);
-        return await response.json();
+        const text = await response.json();
+        console.log(text);
+        return text;
     } catch (error) {
         console.log(error);
-        return;
     }
 }
 
