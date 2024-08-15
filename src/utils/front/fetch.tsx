@@ -32,7 +32,7 @@ interface FetchOptions {
     body?: any;
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || `https://${process.env.VERCEL_URL}`;
+const baseUrl = `https://${process.env.VERCEL_URL}`;
 
 const fetchData = async (url: string, options: FetchOptions = {}) => {
 
@@ -66,7 +66,7 @@ const fetchData = async (url: string, options: FetchOptions = {}) => {
 
     console.log(baseUrl);
     
-    const response = await fetch("https://sneakicks-wheat.vercel.app" + "/api" + url, settings);
+    const response = await fetch(baseUrl + "/api" + url, settings);
     return await response.json();
 }
 
