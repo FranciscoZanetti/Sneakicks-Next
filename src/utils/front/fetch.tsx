@@ -69,7 +69,7 @@ const fetchData = async (url: string, options: FetchOptions = {}) => {
     console.log(baseUrl);
 
     try {
-        const response = await fetch(baseUrl + "/api" + url, settings);
+        const response = await fetch("/api" + url, settings);
         console.log(response);
         const text = await response.json();
         console.log("\nRESPONSE.JSON():  ", text);

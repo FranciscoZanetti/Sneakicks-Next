@@ -6,6 +6,8 @@ import '@/styles/home.css';
 import HomeSection from '@/components/home/HomeSection';
 import fetchData from "@/utils/front/fetch";
 import { Brand, Size, Product, Review, Products_size, Products_cart, Order, Shipping, User } from "@/utils/front/interfaz";
+import { prisma } from "@/libs/prisma";
+import { redis } from "@/libs/redis";
 require('dotenv').config();
 
 interface HomeProps{
@@ -13,6 +15,71 @@ interface HomeProps{
     bargains: any[];
     newones: any[];
     used: any[];
+}
+
+const getData = async () => {
+    let products: any;
+    products = await redis.get('products');
+    
+    console.log("\nREDIS PRODUCTS: " + JSON.stringify(products) + "\n");
+    
+    if (!products) {
+        try {
+            products = await prisma.product.findMany({
+                include: {
+                    brand: true,
+                    product_sizes: true,
+                },
+            });
+            await redis.set("products", JSON.stringify(products));
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
+
+    let newOnes: Product[] = [];
+    let used: Product[] = [];
+    let bargains: Product[] = [];
+    let unreleased: Product[] = [];
+
+    let counterNewOnes = 0;
+    let counterUsed = 0;
+    let counterBargains = 0;
+    let counterUnreleased = 0;
+
+    const year = new Date().getFullYear();
+
+    products.forEach((product: Product) => {
+        if (product.shoe_condition == "new_no_def"){
+            newOnes.push(product);
+            counterNewOnes++;
+        } else {
+            used.push(product);
+            counterUsed++;
+        }
+        if (product.release_year > year){
+            used.push(product);
+            counterUnreleased++;
+        }
+        if (product.discount > 0){
+            bargains.push(product);
+            counterBargains++;
+        }
+    });
+
+    let data = {
+        counterNewones: counterNewOnes,
+        counterUsed: counterUsed,
+        counterBargains: counterBargains,
+        counterUnreleased: counterUnreleased,
+        newones: newOnes,
+        used: used,
+        bargains: bargains,
+        unreleased: unreleased
+    }
+
+    return data;
 }
 
 export default async function Home() {
@@ -23,17 +90,28 @@ export default async function Home() {
     console.log("Is this running on the server?", typeof window === "undefined");
 
 
-    console.log("WILL REFETCH");
+    // console.log("WILL REFETCH");
     
-    const response = await fetchData("/products/landing", { seconds: 300 });
-    console.log(response);
+    // const response = await fetchData("/products/landing", { seconds: 300 });
+    // console.log(response);
+
     
-    const unreleased: Product[] = response.data?.unreleased ?? [];
+    
+    // const unreleased: Product[] = response.data?.unreleased ?? [];
+    // console.log(unreleased);
+    
+    // const bargains: Product[] = response.data?.bargains ?? [];
+    // const used: Product[] = response.data?.used ?? [];
+    // const newones: Product[] = response.data?.newones ?? [];
+
+    const data = await getData();
+
+    const unreleased: Product[] = data?.unreleased ?? [];
     console.log(unreleased);
     
-    const bargains: Product[] = response.data?.bargains ?? [];
-    const used: Product[] = response.data?.used ?? [];
-    const newones: Product[] = response.data?.newones ?? [];
+    const bargains: Product[] = data?.bargains ?? [];
+    const used: Product[] = data?.used ?? [];
+    const newones: Product[] = data?.newones ?? [];
 
 
     return (
