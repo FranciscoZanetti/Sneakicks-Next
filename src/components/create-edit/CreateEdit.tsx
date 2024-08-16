@@ -243,7 +243,7 @@ const CreateEdit = (props: { product?: Product }) => {
                     setErrorsBack(undefined);
                     resetForm();
                     setIsSubmitting(false);
-                    router.push(results.url);
+                    router.push("/products/"+results.data.id);
                 } else if (results.status == 400) {
                     setErrorsBack("Revisa los campos con valores inválidos.");
                     resetForm(results.old);

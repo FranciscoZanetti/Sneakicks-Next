@@ -69,7 +69,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, colorwaves, DRGcheck
     });
     if (colorwaveMatch !== undefined && colorwaveMatch !== product.id) {
       onChangeDRG("nav-descripcion");
-      router.push(process.env.NEXT_PUBLIC_APP_BASE_URL + "/products/" + colorwaveMatch);
+      router.push("/products/" + colorwaveMatch);
     }
   }
 

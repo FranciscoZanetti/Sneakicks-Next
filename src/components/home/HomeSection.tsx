@@ -19,8 +19,8 @@ const HomeSection: React.FC<HomeSectionProps> = ({ category, products }) => {
             <h2 className="center_text">{category}</h2>
             <div className="preview-container">
                 {products.map((product, i) => (
-                    <div className="preview-container_item" key={product.id * i} onClick={() => {router.push(process.env.NEXT_PUBLIC_APP_BASE_URL+'/products/'+product.id)}}>
-                        <Link href={process.env.NEXT_PUBLIC_APP_BASE_URL+`/products/${product.id}`}>
+                    <div className="preview-container_item" key={product.id * i} onClick={() => {router.push('/products/'+product.id)}}>
+                        <Link href={`/products/${product.id}`}>
                             <div className="preview_image">
                                 <img
                                     src={product.main_picture}

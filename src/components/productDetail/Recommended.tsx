@@ -24,7 +24,7 @@ const Recommended: React.FC<RecommendedProps> = ({ recommended }) => {
       {recommendedProducts && recommendedProducts.length > 0 &&
         recommendedProducts.map((product, i) => (
           <div className="preview-container_item" key={product.id + i}>
-            <Link href={process.env.NEXT_PUBLIC_APP_BASE_URL + "/products/" + product.id}>
+            <Link href={"/products/" + product.id}>
               <div className="preview_image">
                 <img src={product.main_picture} alt="" className="preview"/>
               </div>

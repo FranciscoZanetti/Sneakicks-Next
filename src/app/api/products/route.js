@@ -528,7 +528,7 @@ export async function POST(req) {
     return NextResponse.json(
       {
         success: true,
-        url: `${process.env.NEXT_PUBLIC_APP_BASE_URL}/products/${product.id}`,
+        data: product,
         message: 'Product created successfully.',
         status: 201
       },
